@@ -60,13 +60,13 @@
 
 
 @code {
-    Product selectedProduct;
-    string selectedProductId;
+    Product? selectedProduct;
+    string? selectedProductId;
 
     void SelectProduct(string productId)
     {
         selectedProductId = productId;
         selectedProduct = ProductService.GetProducts().First(p => p.Id == productId);
-
     }
+
 }
