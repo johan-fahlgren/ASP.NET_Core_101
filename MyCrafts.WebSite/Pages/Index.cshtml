@@ -1,4 +1,5 @@
 ﻿@page
+@using MyCrafts.WebSite.Components
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -9,24 +10,4 @@
     <h5 class="display-6">Look at some of our fun project</h5>
 </div>
 
-<div class="row gap-4" style="margin: 100px 0px">
-    
-
-    @foreach (var product in Model.Products)
-    {
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" style="padding-top: 10px" src="@product.Image" alt="Card image cap">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">@product.Title</h5>
-                <p><strong>Maker: @product.Maker</strong></p>
-                <p class="card-text">@product.Description</p>
-                <div class="d-grid mt-auto">
-                    <a href="@product.Url" class="btn btn-primary" target="_blank">Go to project</a>
-                </div>
-            </div>
-        </div>
-        
-    }
-
-
-</div>
+@(await  Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
